@@ -93,9 +93,7 @@ function filterGoods(e) {
 
     if (target.dataset.category === 'all') {
         filteredArray = goods;
-        console.log(filteredArray);
         renderCatalog(filteredArray);
-
         return;
     }
 
@@ -104,7 +102,7 @@ function filterGoods(e) {
     })
 
     renderCatalog(filteredArray);
-    console.log(filteredArray);
+
 }
 
 function createCategory() {
@@ -160,11 +158,13 @@ function createCategoryButton(categoriesArr) {
 function renderCatalog(goods) {
     catalog.innerHTML = '';
     goods.forEach((item) => {
+        const {image, title, price, category} = item;
+
         new goodsItem(
-            item.image,
-            item.title,
-            item.price,
-            item.category).createGoods();
+            image,
+            title,
+            price,
+            category).createGoods();
     });
 
 }
